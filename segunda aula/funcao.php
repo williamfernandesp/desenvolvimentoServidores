@@ -42,7 +42,7 @@
         return $retorno;
     }
 
-    function mediaArray($array) {
+    function MediaArray($array) {
         $soma = SomaArray($array);
         return $soma/count($array);
     }
