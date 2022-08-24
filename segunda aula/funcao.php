@@ -6,7 +6,6 @@
         } else {
             echo "Nunca vai cair aqui";
         }
-
     }
 
     function Adicao($num1, $num2) {
