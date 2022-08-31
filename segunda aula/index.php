@@ -50,6 +50,4 @@ $_SESSION;
 $_FILES;
 */
 
-
-
 ?>
