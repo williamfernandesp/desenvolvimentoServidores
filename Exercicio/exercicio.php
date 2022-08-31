@@ -14,7 +14,7 @@ Gere um array com numeros randomicos (rand(-50,50)) e ordene em ordem crescente.
 ________________________________________________________________________________
 */
 
-/* Exercicio 1 ---------------------- */
+/* Exercicio 1 ------------------------ */
 $numeros = array();
 
 for($i = 0; $i < 10; $i++) {
