@@ -16,7 +16,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-    <img src="./logoPHP.png" alt="Bootstrap" width="90" height="48">
+    <img src="logoPHP.png" alt="Bootstrap" width="90" height="48">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -46,7 +46,7 @@
           <a class="nav-link" href="./produtos.php">Produtos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./clientes.php">Clientes</a>
+          <a class="nav-link" href="./disciplinas.php">Disciplinas</a>
         </li>
       </ul>
       
