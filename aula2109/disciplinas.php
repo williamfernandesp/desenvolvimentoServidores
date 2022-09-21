@@ -1,13 +1,50 @@
 <?php include "cabecalho.php"; ?>
 
 <?php
+
+    if(isset($_GET["busca"]) && !empty($_GET["busca"])) {
+
+    $dados = file_get_contents("https://reserva.fatectq.edu.br/api/disciplinas/busca/".$_GET["busca"]);
+    $dados = json_decode($dados,true);
+
+    } else {
+
     $dados = file_get_contents("https://reserva.fatectq.edu.br/api/disciplinas");
     $dados = json_decode($dados,true);
 
-    ?>
+    }
+
+    if(isset($_GET["erro"]) && $_GET["erro"] == "semid") {
+        ?>
+        <div class="alert alert-danger mt-4">
+            Selecione uma disciplina para editar
+        </div>
+        <?php
+    }
+?>
 
     <div class="row">
         <div class="col-10 offset-1">
+
+        <div class="card mt-3">
+            <div class="card-header">Lista de Disciplinas</div>
+            <div class="card-body">
+                <form action="./disciplinas.php" method="get">
+                    <div class="row">
+                        <div class="col-2">
+                            <a class="btn btn-success">Nova Disciplina</a>
+                        </div>
+                        <div class="col-4">
+                            <input type="text" name="busca" class="form-control" />
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" class="btn btn-primary">Pesquisar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
             <table class="table table-hover table-striped">
                 <thead>
                     <tr>
@@ -20,52 +57,27 @@
                 <tbody>
                     <?php
                         for($i = 0; $i < count($dados); $i++) {
-
                     ?>
-
                                 <tr>
                                     <td><?php echo $dados[$i]["disciplinaId"]; ?></td>
                                     <td><?php echo $dados[$i]["nome"]; ?></td>
                                     <td><?php echo $dados[$i]["sigla"]; ?></td>
                                     <td><?php echo $dados[$i]["apelido"]; ?></td>
                                     <td>
-                                        <a class="btn btn-warning">Editar</a>
+                                        <a class="btn btn-warning" href="./editar_disciplina.php?Id=<?php echo $dados[$i]["disciplinaId"]; ?>">Editar</a>
                                     </td>
                                     <td>
                                         <a class="btn btn-danger">Excluir</a>
                                     </td>
-                                </tr>
-
+                        </tr>
                             <?php
-                            //echo "<tr>";
-                            //echo "<td>";
-                            //echo 
-                            //echo "</td>";
-                            //echo "<td>";
-                            //echo $dados[$i]["nome"];
-                            //echo "</td>";
-                            //echo "<td>";
-                            //echo $dados[$i]["sigla"];
-                            //echo "</td>";
-                            //echo "<td>";
-                            //echo $dados[$i]["apelido"];
-                            //echo "</td>";
-                            //echo "</tr>";
-                            
                         }
                              ?>
-                    
                 </tbody>
             </table>
         </div>
     </div>
-
-
     <?php
-
-    echo "<h1>".$dados[0]["nome"]."</h1>";
-
-    
 
     //echo "<pre>";
     //print_r($dados);
