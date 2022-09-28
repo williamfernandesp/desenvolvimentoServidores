@@ -1,4 +1,4 @@
-<?php include "cabecalho.php"; ?>
+<?php include "../layout/cabecalho.php"; ?>
 
 <?php
 
@@ -84,4 +84,4 @@
     //echo "</pre>";
 ?>
 
-<?php include "rodape.php"; ?>
+<?php include "../layout/rodape.php"; ?>
