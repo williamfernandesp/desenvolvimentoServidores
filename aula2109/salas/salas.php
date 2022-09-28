@@ -4,12 +4,12 @@
 
     if(isset($_GET["busca"]) && !empty($_GET["busca"])) {
 
-    $dados = file_get_contents("https://reserva.fatectq.edu.br/api/disciplinas/busca/".$_GET["busca"]);
+    $dados = file_get_contents("https://reserva.fatectq.edu.br/api/salas/busca/".$_GET["busca"]);
     $dados = json_decode($dados,true);
 
     } else {
 
-    $dados = file_get_contents("https://reserva.fatectq.edu.br/api/disciplinas");
+    $dados = file_get_contents("https://reserva.fatectq.edu.br/api/salas");
     $dados = json_decode($dados,true);
 
     }
@@ -50,25 +50,42 @@
                     <tr>
                         <th>Id</th>
                         <th>Nome</th>
-                        <th>Sigla</th>
-                        <th>Apelido</th>
+                        <th>Descrição</th>
+                        <th>Bloco</th>
+                        <th>Capacidade</th>
+                        <th>Permitir </br> Reserva</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                         for($i = 0; $i < count($dados); $i++) {
                     ?>
-                                <tr>
-                                    <td><?php echo $dados[$i]["disciplinaId"]; ?></td>
-                                    <td><?php echo $dados[$i]["nome"]; ?></td>
-                                    <td><?php echo $dados[$i]["sigla"]; ?></td>
-                                    <td><?php echo $dados[$i]["apelido"]; ?></td>
-                                    <td>
-                                        <a class="btn btn-warning" href="./editar_disciplina.php?Id=<?php echo $dados[$i]["disciplinaId"]; ?>">Editar</a>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-danger">Excluir</a>
-                                    </td>
+                        <tr>
+                                <td><?php echo $dados[$i]["salaId"]; ?></td>
+                                <td><?php echo $dados[$i]["nome"]; ?></td>
+                                <td><?php echo $dados[$i]["descricao"]; ?></td>
+                                <td><?php echo $dados[$i]["bloco"]; ?></td>
+                                <td><?php echo $dados[$i]["capacidade"]; ?></td>
+                                <td>
+                                    <?php
+                                        if($dados[$i]["permitirReserva"]) {
+                                            ?>
+                                                <input type="checkbox" checked="checked"/>
+                                            <?php 
+                                        
+                                        } else {
+                                            ?>
+                                                <input type="checkbox"/>
+                                            <?php 
+                                        }
+                                    ?>
+                                </td>
+                                <td>
+                                    <a class="btn btn-warning" href="./editar_salas.php?Id=<?php echo $dados[$i]["salaId"]; ?>">Editar</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger">Excluir</a>
+                                </td>
                         </tr>
                             <?php
                         }

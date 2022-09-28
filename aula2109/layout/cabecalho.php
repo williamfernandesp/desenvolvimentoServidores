@@ -31,6 +31,12 @@
         <li class="nav-item">
           <a class="nav-link" href="/manhã/aula2109/usuarios/usuarios.php">Usuários</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Manhã/aula2109/disciplinas/disciplinas.php">Disciplinas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Manhã/aula2109/salas/salas.php">Salas</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Cadastro
@@ -39,12 +45,11 @@
             <li><a class="dropdown-item" href="#">Cadastrar Usuario</a></li>
             <li><a class="dropdown-item" href="#">Cadastrar Clientes</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Cadastrar Produtos</a></li>
+            <li><a class="dropdown-item" href="#">Cadastrar Disciplinas</a></li>
+            <li><a class="dropdown-item" href="#">Cadastrar Salas</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/Manhã/aula2109/disciplinas/disciplinas.php">Disciplinas</a>
-        </li>
+        
       </ul>
       
     </div>
